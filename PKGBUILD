@@ -6,7 +6,7 @@ arch=('x86_64')
 url="www.xmind.net"
 license=('EPL' 'LGPL')
 depends=('openjdk' 'webkitgtk2' 'lame' 'glib2')
-source=('http://www.xmind.net/${pkgname}/downloads/${pkgname}-7.5-update1-linux_amd64.deb')
+source=('http://www.xmind.net/xmind/downloads/xmind-7.5-update1-linux_amd64.deb')
 md5sums=('64fb4bf0dfed84701432bc0bc8a47b16')
 
 package() {
