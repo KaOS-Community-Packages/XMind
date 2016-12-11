@@ -1,0 +1,13 @@
+post_install() {
+  echo ""
+  echo -e "\e[0;34m  If you get on startup the error message:"
+  echo -e "\e[0;32m      \"An error has occurred. See the log file\""
+  echo -e "\e[0;34m  execute"
+  echo -e "\e[0;32m      cp -ri -t ~/.xmind /opt/xmind/XMind_amd64/{configuration,p2}"
+  echo -e "\e[0;34m  to copy the default configuration files into your home folder."
+  echo ""
+}
+
+post_upgrade() {
+  post_install $1
+}
