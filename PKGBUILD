@@ -1,22 +1,21 @@
 pkgname=xmind
-pkgver=3.7.0
+pkgver=3.7.1
 pkgrel=1
 pkgdesc="The most popular Mind Mapping Software on the planet"
 arch=('x86_64')
 url="https://www.xmind.net"
 license=('EPL' 'LGPL')
-depends=('jdk' 'gtk2>=2.8' 'webkitgtk2')
+depends=('openjdk>=8u' 'gtk2>=2.8' 'webkitgtk2')
 optdepends=('lame: needed for the feature audio notes')
 install=${pkgname}.install
-source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-linux.zip"
+source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update1-linux.zip"
         "XMind.png")
-md5sums=('1ea5acf1edcf628629f21bf73dd18358'
+md5sums=('3e1ab6d5889bfd5b7d06c9c5e0743cce'
          'b0249518575eeb2f48f5d857346fecfc')
 
 prepare() {
   # patch XMind.ini
   sed \
-    -e '1i -vm\n/opt/java/bin/java' \
     -e 's|\.\/configuration|\@user\.home/\.xmind\/configuration|' \
     -e 's|\.\.\/workspace|\@user\.home\/\.xmind\/workspace-cathy|' \
     -e "s|\.\.\/plugins|\/opt\/${pkgname}\/plugins|g" \
@@ -27,16 +26,16 @@ prepare() {
   #create desktop file
   cat > ${srcdir}/${pkgname}.desktop << EOF
 [Desktop Entry]
-Type=Application
-Version=3.7.0
 Encoding=UTF-8
+Type=Application
+Categories=Office;
 Name=XMind
+Version=3.7.1
 Comment=Launch XMind 8
 Icon=XMind
-Exec=/opt/xmind/XMind_amd64/XMind
+Exec=SWT_GTK3=0 /opt/xmind/XMind_amd64/XMind
 Terminal=false
 StartupNotify=true
-Categories=Office;
 MimeType=application/xmind;x-scheme-handler/xmind;
 EOF
 }
@@ -47,8 +46,8 @@ package() {
   install -Dm644 ${srcdir}/fonts/*.ttf ${pkgdir}/usr/share/fonts/truetype/${pkgname}/
 
   # install menu entry
-  install -Dm644 ${srcdir}/${pkgname}.desktop ${pkgdir}/usr/share/applications/${pkgname}.desktop
-  install -Dm644 ${srcdir}/XMind.png ${pkgdir}/usr/share/pixmaps/XMind.png
+  install -Dm755 ${srcdir}/${pkgname}.desktop ${pkgdir}/usr/share/applications/${pkgname}.desktop
+  install -Dm644 ${srcdir}/XMind.png ${pkgdir}/usr/share/icons/hicolor/32x32/apps/XMind.png
 
   # install xmind
   install -Dm755 -d ${pkgdir}/opt/${pkgname}/
