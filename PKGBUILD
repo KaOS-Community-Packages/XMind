@@ -1,5 +1,5 @@
 pkgname=xmind
-pkgver=3.7.1
+pkgver=3.7.2
 pkgrel=1
 pkgdesc="The most popular Mind Mapping Software on the planet"
 arch=('x86_64')
@@ -8,9 +8,9 @@ license=('EPL' 'LGPL')
 depends=('openjdk>=8u' 'gtk2>=2.8' 'webkitgtk2')
 optdepends=('lame: needed for the feature audio notes')
 install=${pkgname}.install
-source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update1-linux.zip"
+source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update2-linux.zip"
         "XMind.png")
-md5sums=('3e1ab6d5889bfd5b7d06c9c5e0743cce'
+md5sums=('b66e47fc662927b653d26f5e54355698'
          'b0249518575eeb2f48f5d857346fecfc')
 
 prepare() {
@@ -19,8 +19,8 @@ prepare() {
     -e 's|\.\/configuration|\@user\.home/\.xmind\/configuration|' \
     -e 's|\.\.\/workspace|\@user\.home\/\.xmind\/workspace-cathy|' \
     -e "s|\.\.\/plugins|\/opt\/${pkgname}\/plugins|g" \
-    -e '$i -Dosgi.instance.area=@user.home/.xmind/workspace-cathy' \
-    -e '$i -Dosgi.configuration.area=@user.home/.xmind/configuration' \
+    -e '$ i -Dosgi.instance.area=@user.home/.xmind/workspace-cathy' \
+    -e '$ i -Dosgi.configuration.area=@user.home/.xmind/configuration' \
     -i ${srcdir}/XMind_amd64/XMind.ini
 
   #create desktop file
@@ -30,8 +30,8 @@ Encoding=UTF-8
 Type=Application
 Categories=Office;
 Name=XMind
-Version=3.7.1
-Comment=Launch XMind 8
+Version=3.7.2
+Comment=Launch XMind 8 Update 2
 Icon=XMind
 Exec=SWT_GTK3=0 /opt/xmind/XMind_amd64/XMind
 Terminal=false

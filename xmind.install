@@ -1,7 +1,7 @@
 post_install() {
   echo ""
-  echo -e "\e[0;34m  Before launching XMIND first copy the default configuration with"
-  echo -e "\e[0;32m      cp -ri -t ~/.xmind /opt/xmind/XMind_amd64/{configuration,p2}"
+  echo -e "\e[0;34m  Before launching XMind first copy the default configuration with"
+  echo -e "\e[0;32m      mkdir -p ~/.xmind && cp -ri -t ~/.xmind /opt/xmind/XMind_amd64/{configuration,p2}"
   echo -e "\e[0;34m  into your home folder."
   echo ""
 }
