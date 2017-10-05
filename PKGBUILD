@@ -1,5 +1,5 @@
 pkgname=xmind
-pkgver=3.7.4
+pkgver=3.7.5
 pkgrel=1
 pkgdesc="The most popular Mind Mapping Software on the planet"
 arch=('x86_64')
@@ -8,9 +8,9 @@ license=('EPL' 'LGPL')
 depends=('openjdk>=8u' 'gtk2>=2.8' 'webkitgtk2')
 optdepends=('lame: needed for the feature audio notes')
 install=${pkgname}.install
-source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update4-linux.zip"
+source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update5-linux.zip"
         "XMind.png")
-sha256sums=('199822522d59e9dcb4fb2ecff449aa35f37d46c861689219a1b2a6dd44fa0a7d'
+sha256sums=('7e23e113a96b95ca8f73e10e6a6a3a54520e99069fc69dccf33990bc7eb7295a'
             '67cda22286ea8350eda083456eeddabbcbc8ad419624be7e64bb601ec9352191')
 
 prepare() {
