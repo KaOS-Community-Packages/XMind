@@ -1,5 +1,5 @@
 pkgname=xmind
-pkgver=3.7.7
+pkgver=3.8.0
 pkgrel=1
 pkgdesc="The most popular Mind Mapping Software on the planet"
 arch=('x86_64')
@@ -8,9 +8,9 @@ license=('EPL' 'LGPL')
 depends=('openjdk>=8u' 'gtk2>=2.8' 'webkitgtk2')
 optdepends=('lame: needed for the feature audio notes')
 install=${pkgname}.install
-source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update7-linux.zip"
+source=("https://www.xmind.net/xmind/downloads/${pkgname}-8-update8-linux.zip"
         "XMind.png")
-sha256sums=('240478064e47a46772a52de55a09b948c92e6ef2e6a91fcf6446f7fe90fc990c'
+sha256sums=('164abcc27d124721d58d5bd8f8941686519203ce7580f48133e73544c34145d0'
             '67cda22286ea8350eda083456eeddabbcbc8ad419624be7e64bb601ec9352191')
 
 prepare() {
@@ -30,8 +30,8 @@ Encoding=UTF-8
 Type=Application
 Categories=Office;
 Name=XMind
-Version=3.7.2
-Comment=Launch XMind 8 Update 2
+Version=$pkgver
+Comment=Launch XMind 8
 Icon=XMind
 Exec=SWT_GTK3=0 /opt/xmind/XMind_amd64/XMind
 Terminal=false
